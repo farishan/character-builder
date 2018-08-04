@@ -2,11 +2,57 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Template</title>
+	<title>Character Builder</title>
 	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<h1>Template</h1>
+	<div id="app">
+		<h1>Character Builder</h1>
+
+		<table>
+			<tbody>
+				<tr>
+					<td>Name</td>
+					<td>{{player.name}}</td>
+				</tr>
+				<tr>
+					<td>HP</td>
+					<td>{{player.hp}}</td>
+				</tr>
+				<tr>
+					<td>Damage</td>
+					<td>{{player.dmg}}</td>
+				</tr>
+				<tr>
+					<td>Exp</td>
+					<td>{{player.exp}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<br>
+
+		<table>
+			<tbody>
+				<tr>
+					<td>Name</td>
+					<td>{{enemy.name}}</td>
+				</tr>
+				<tr>
+					<td>HP</td>
+					<td>{{enemy.hp}}</td>
+				</tr>
+				<tr>
+					<td>Damage</td>
+					<td>{{enemy.dmg}}</td>
+				</tr>
+				<tr>
+					<td>Exp</td>
+					<td>{{enemy.exp}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	
 	<script src="vue.js"></script>
 	<script src="main.js"></script>
