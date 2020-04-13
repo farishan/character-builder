@@ -20,18 +20,11 @@ var _player = new Character({
 	exp: 0
 });
 
-var enemy1 = new Character({
-	name: 'Enemi',
-	hp: 10,
-	dmg: 1,
-	exp: 10
-});
-
-var enemy2 = new Character({
-	name: 'Enemiiii',
-	hp: 20,
-	dmg: 1,
-	exp: 10
+var enemy = new Character({
+	name: 'Enemy',
+	hp: 100,
+	dmg: 2,
+	exp: 0
 });
 
 console.log(_player)
@@ -41,14 +34,14 @@ var app = new Vue({
 	data: function(){
 		return {
 			player: _player,
-			enemy: enemy2
+			enemy,
+			message: ''
 		}
-	},
-	mounted(){
-		this.battle();
 	},
 	methods: {
 		battle(){
+			this.message = '';
+
 			var self = this;
 			self.player.attack(self.enemy);
 			self.enemy.attack(self.player);
@@ -61,11 +54,13 @@ var app = new Vue({
 
 			if(self.player.hp <= 0){
 				console.log('player.dead');
+				this.message = 'ENEMY WIN'
 				this.battleResult(false);
 			}
 
 			if(self.enemy.hp <= 0){
 				console.log('enemy.dead');
+				this.message = 'PLAYER WIN'
 				this.battleResult(true);
 			}
 		},
@@ -73,11 +68,15 @@ var app = new Vue({
 			if(res){
 				this.player.exp += this.enemy.exp;
 			}
-			this.resetHp();
 		},
 		resetHp(){
 			this.player.hp = this.player.max_hp;
 			this.enemy.hp = this.enemy.max_hp;
+		},
+		reset(){
+			this.player.hp = this.player.max_hp;
+			this.enemy.hp = this.enemy.max_hp;
+			this.message = '';
 		}
 	}
 })

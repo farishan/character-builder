@@ -9,51 +9,70 @@
 	<div id="app">
 		<h1>Character Builder</h1>
 
-		<table>
-			<tbody>
-				<tr>
-					<td>Name</td>
-					<td>{{player.name}}</td>
-				</tr>
-				<tr>
-					<td>HP</td>
-					<td>{{player.hp}}</td>
-				</tr>
-				<tr>
-					<td>Damage</td>
-					<td>{{player.dmg}}</td>
-				</tr>
-				<tr>
-					<td>Exp</td>
-					<td>{{player.exp}}</td>
-				</tr>
-			</tbody>
-		</table>
+		<div>
+			<h3>Player Editor</h3>
+			<label>Name</label>
+			<input type="text" v-model="player.name">
+			<label>HP</label>
+			<input type="num" v-model="player.hp">
+			<label>Damage</label>
+			<input type="num" v-model="player.dmg">
+			<label>Exp</label>
+			<input type="num" v-model="player.exp">
+		</div>
 
-		<br>
+		<div style="border: 1px solid">
+			<h3>Battle Arena</h3>
+			<h1>{{message}}</h1>
+			<table>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>{{player.name}}</td>
+					</tr>
+					<tr>
+						<td>HP</td>
+						<td>{{player.hp}}</td>
+					</tr>
+					<tr>
+						<td>Damage</td>
+						<td>{{player.dmg}}</td>
+					</tr>
+					<tr>
+						<td>Exp</td>
+						<td>{{player.exp}}</td>
+					</tr>
+				</tbody>
+			</table>
 
-		<table>
-			<tbody>
-				<tr>
-					<td>Name</td>
-					<td>{{enemy.name}}</td>
-				</tr>
-				<tr>
-					<td>HP</td>
-					<td>{{enemy.hp}}</td>
-				</tr>
-				<tr>
-					<td>Damage</td>
-					<td>{{enemy.dmg}}</td>
-				</tr>
-				<tr>
-					<td>Exp</td>
-					<td>{{enemy.exp}}</td>
-				</tr>
-			</tbody>
-		</table>
+			<br>
+
+			<table>
+				<tbody>
+					<tr>
+						<td>Name</td>
+						<td>{{enemy.name}}</td>
+					</tr>
+					<tr>
+						<td>HP</td>
+						<td>{{enemy.hp}}</td>
+					</tr>
+					<tr>
+						<td>Damage</td>
+						<td>{{enemy.dmg}}</td>
+					</tr>
+					<tr>
+						<td>Exp</td>
+						<td>{{enemy.exp}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<button @click="reset">reset</button>
+		<button @click="battle">start battle</button>
 	</div>
-	
+
 	<script src="vue.js"></script>
 	<script src="main.js"></script>
 </body>
